@@ -60,13 +60,13 @@
 
 <script>
 import TreeStore from "./model/tree-store";
-import { RecycleScroller } from "vue-virtual-scroller";
+import {RecycleScroller} from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
-import { getNodeKey, findNearestComponent } from "./model/util";
+import {getNodeKey, findNearestComponent} from "./model/util";
 import ElTreeNode from "./tree-node.vue";
 import ElTreeVirtualNode from "./virtual-tree-node.vue";
 import emitter from "./mixins/emitter";
-import { addClass, removeClass } from "./utils/dom";
+import {addClass, removeClass} from "./utils/dom";
 
 export default {
   name: "VueEasyTree",
@@ -562,15 +562,15 @@ export default {
         ? dropInner
           ? 0.25
           : dropNext
-          ? 0.45
-          : 1
+            ? 0.45
+            : 1
         : -1;
       const nextPercent = dropNext
         ? dropInner
           ? 0.75
           : dropPrev
-          ? 0.55
-          : 0
+            ? 0.55
+            : 0
         : 1;
 
       let indicatorTop = -9999;
@@ -611,12 +611,12 @@ export default {
     });
 
     this.$on("tree-node-drag-end", (event) => {
-      const { draggingNode, dropType, dropNode } = dragState;
+      const {draggingNode, dropType, dropNode} = dragState;
       event.preventDefault();
       event.dataTransfer.dropEffect = "move";
 
       if (draggingNode && dropNode) {
-        const draggingNodeCopy = { data: draggingNode.node.data };
+        const draggingNodeCopy = {data: draggingNode.node.data};
         if (dropType !== "none") {
           draggingNode.node.remove();
         }
