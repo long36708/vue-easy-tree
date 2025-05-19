@@ -20,6 +20,7 @@
       :items="dataList"
       :item-size="itemSize"
       :buffer="50"
+      :updateInterval="50"
     >
       <template slot-scope="{ active, item }">
         <ElTreeVirtualNode
@@ -60,7 +61,8 @@
 
 <script>
 import TreeStore from "./model/tree-store";
-import {RecycleScroller} from "vue-virtual-scroller";
+// import {RecycleScroller} from "vue-virtual-scroller";
+import {RecycleScroller} from "../vue-virtual-scroller/src/index";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import {getNodeKey, findNearestComponent} from "./model/util";
 import ElTreeNode from "./tree-node.vue";

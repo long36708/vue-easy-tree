@@ -13,6 +13,7 @@
     >
     </vue-easy-tree>
 
+    <button @click="handleMockData"> 生成假数据</button>
     <button @click="getAllCheckedKeys"> 点击赋值给另一个树</button>
 
     <vue-easy-tree
@@ -30,26 +31,18 @@
 </template>
 
 <script>
-// import Mock from 'mockjs'
-// 这里需要注意userInfo是解构出来的，要一一对应
-// const {usersInfo} = Mock.mock({
-//   "usersInfo|1000": [ // 表示生成10-20个数据
-//     {
-//       "id|+1": 1, // 表示id从1开始自增1
-//       name: '@cname()', // 生成随机名字固定写法
-//       address: '@city(true)', // 传入true表示具体到省份市区
-//       email: '@email(163.com)' // 传入163.com表示生成的邮箱以163.com结尾，可自定义
-//     }
-//   ]
-// })
-import {mockTreeData} from './utils/index'
+// import {mockTreeData} from './utils/index'
 
-const treeData = mockTreeData(6500, 10, 50)
+// const treeData = mockTreeData(6500, 10, 50)
+import {mockTreeData} from "./utils/mockTreeData";
+
+const treeData = mockTreeData();
 export default {
   data() {
     return {
       props: {
-        label: "label",
+        // label: "label",
+        label: "name",
         children: "children",
       },
       treeData: [],
@@ -57,33 +50,12 @@ export default {
     };
   },
   created() {
-    // const data = [],
-    //   root = 8,
-    //   children = 3,
-    //   base = 10000;
-    // for (let i = 0; i < root; i++) {
-    //   data.push({
-    //     id: `${i}`,
-    //     name: `test-${i}`,
-    //     children: [],
-    //   });
-    //   for (let j = 0; j < children; j++) {
-    //     data[i].children.push({
-    //       id: `${i}-${j}`,
-    //       name: `test-${i}-${j}`,
-    //       children: [],
-    //     });
-    //     for (let k = 0; k < base; k++) {
-    //       data[i].children[j].children.push({
-    //         id: `${i}-${j}-${k}`,
-    //         name: `test-${i}-${j}-${k}`,
-    //       });
-    //     }
-    //   }
-    // }
-    this.treeData = treeData;
+
   },
   methods: {
+    handleMockData(){
+      this.treeData = treeData;
+    },
     getAllCheckedKeys() {
       const checkedKeys = this.$refs.veTree.getCheckedKeys();
       console.log('勾选的数据', checkedKeys.length) // 勾选的数据 5006
