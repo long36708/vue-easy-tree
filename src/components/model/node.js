@@ -318,8 +318,10 @@ export default class Node {
             if (expandParent) {
                 let parent = this.parent;
                 while (parent.level > 0) {
+                  if(parent.expanded === false){
                     parent.expanded = true;
-                    parent = parent.parent;
+                  }
+                  parent = parent.parent;
                 }
             }
             this.expanded = true;

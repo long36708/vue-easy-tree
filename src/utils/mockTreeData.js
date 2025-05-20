@@ -1,13 +1,13 @@
 /**
  * @Author: longmo
  * @Date: 2025-05-14 14:02:03
- * @LastEditTime: 2025-05-14 14:06:29
- * @FilePath: src/mock/mockTreeData.js
+ * @LastEditTime: 2025-05-19 16:24:09
+ * @FilePath: src/utils/mockTreeData.js
  * @Description:
  */
 export function mockTreeData(maxLength = 10_000) {
     const data = [],
-        root = 8,
+        root = 10,
         children = 3,
         base = maxLength;
     for (let i = 0; i < root; i++) {

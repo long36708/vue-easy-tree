@@ -212,6 +212,10 @@ export default {
       });
     },
 
+    /**
+     * 只显示展开的并且可显示的节点数组用于虚拟列表渲染
+     * @returns {*}
+     */
     dataList() {
       return this.smoothTree(this.root.childNodes);
     },
